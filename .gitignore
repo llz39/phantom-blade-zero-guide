@@ -22,3 +22,8 @@ outputs/
 .mypy_cache/
 .ruff_cache/
 .testdeps/
+
+# ---------- IDE ----------
+.idea/
+.vscode/
+*.iml
