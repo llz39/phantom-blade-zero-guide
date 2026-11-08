@@ -1,0 +1,43 @@
+# -*- coding: utf-8 -*-
+# 《影之刃零》攻略客服 Demo 配置
+#
+# 说明：
+# - pipeline 仍沿用 LLMCommandGenerator，不重写框架；
+# - policies 只用 FlowPolicy + EnterpriseSearchPolicy；
+# - vector_store 指向本项目 addons 下的 MilvusRetriever（向量检索只走 Milvus）。
+
+recipe: default.v1
+language: zh
+assistant_id: phantom_blade_zero_guide
+
+pipeline:
+  - name: LLMCommandGenerator
+    llm: default
+
+policies:
+  - name: FlowPolicy
+
+  - name: EnterpriseSearchPolicy
+    llm: default
+    embeddings: default
+    # 检索器类路径（连接参数在 endpoints.yml 的 vector_store 中）
+    vector_store: addons.milvus_retrieval.MilvusRetriever
+    # RAG 参数：top_k 4-6，阈值 0.35-0.5（见限制文档 6.1）
+    top_k: 5
+    similarity_threshold: 0.42
+    enable_citation: true
+    # 关闭闲聊兜底：本产品只回答《影之刃零》，闲聊与越界一律拒绝
+    chitchat_enabled: false
+
+# 检索配置（供 CLI / 调试读取）
+retrieval:
+  knowledge_retrieval:
+    enabled: true
+    top_k: 5
+    source: knowledge/phantom_blade_zero
+  retriever:
+    type: milvus
+    embedding_provider: openai
+    embedding_model: text-embedding-v4
+    embedding_dimension: 1024
+    similarity_threshold: 0.42

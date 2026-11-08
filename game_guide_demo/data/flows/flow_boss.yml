@@ -1,0 +1,20 @@
+# -*- coding: utf-8 -*-
+# Boss 打法流程
+#
+# 只做一件事：拿到 Boss 名 → 走知识库检索 → 回答带来源。
+# 无 Flow 命中时由 EnterpriseSearchPolicy 处理，口径一致。
+
+version: "3.1"
+
+flows:
+  boss_guide:
+    name: Boss 打法
+    description: 查某个 Boss 怎么打：机制、阶段、应对注意点（只在问“怎么打”时用）
+    steps:
+      - collect: boss_name
+        description: Boss 名称
+        next: boss_answer
+
+      - id: boss_answer
+        action: action_guide_lookup
+        next: END

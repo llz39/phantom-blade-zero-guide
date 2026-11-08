@@ -1,0 +1,214 @@
+{
+  "passed": 36,
+  "total": 36,
+  "cases": [
+    {
+      "case": "电商目录已移除",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "电商/图数据库脚本已删除",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "代码/配置无图数据库残留",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "case": "requirements 无图数据库依赖",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "requirements 无本地 BGE 依赖",
+      "pass": true,
+      "detail": "click>=8.0.0,<9.0.0\npython-dotenv>=1.0.0,<2.0.0\nfastapi>=0.100.0,<1.0.0\nuvicorn>=0.20.0,<1.0.0\npydantic>=2.0.0,<3.0.0\npydantic-settings>=2.0.0,<3.0.0\nlangchain>=0.3.0\nlangchain-core>=0.3.0\nlangchain-community>=0.3.0\nlangchain-openai>=0.2.0\nlangchain-anthropic>=0.2.0\nlanggraph>=0.2.0\nopenai>=1.0.0,<2.0.0\ndashscope>=1.20.0\npymilvus>=2.4.0,<3.0.0\nnumpy>=1.24.0,<3.0.0\nsqlalchemy>=2.0.0,<3.0.0\npymysql>=1.0.0\npyyaml>=6.0.0,<7.0.0\nruamel.yaml>=0.17.0,<1.0.0\njinja2>=3.0.0,<4.0.0\naiohttp>=3.8.0,<4.0.0\nhttpx>=0.24.0,<1.0.0\npython-socketio>=5.0.0,<6.0.0\ntqdm>=4.60.0,<5.0.0\ncolorama>=0.4.0,<1.0.0\nrich>=10.0.0,<15.0.0\ntyping-extensions>=4.0.0,<5.0.0"
+    },
+    {
+      "case": "requirements 含 pymilvus",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": ".env 被 .gitignore 忽略",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": ".env.example 存在",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "domain 加载",
+      "pass": true,
+      "detail": [
+        "game_id",
+        "boss_name",
+        "weapon_name",
+        "item_name",
+        "quest_name",
+        "entity_name",
+        "doc_type",
+        "version",
+        "spoiler_ack"
+      ]
+    },
+    {
+      "case": "flow 数量为 2-4",
+      "pass": true,
+      "detail": [
+        "boss_guide",
+        "item_location",
+        "quest_guide"
+      ]
+    },
+    {
+      "case": "game_id 固定",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "Flow 收集的槽位都在 domain 中",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "case": "每个收集槽位都有 utter_ask 话术",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "case": "Flow 引用的 Action 已声明",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "case": "拒答话术存在",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "sources.jsonl 存在",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "来源分级齐全",
+      "pass": true,
+      "detail": {
+        "S1": 3,
+        "S3": 27,
+        "S4": 2
+      }
+    },
+    {
+      "case": "文档全部通过 front matter 校验",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "case": "每篇的 source_urls 都在 sources.jsonl 中",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "case": "P0 武器 10-15+",
+      "pass": true,
+      "detail": 19
+    },
+    {
+      "case": "P0 Boss 8-10+",
+      "pass": true,
+      "detail": 14
+    },
+    {
+      "case": "P0 章节 8+",
+      "pass": true,
+      "detail": 8
+    },
+    {
+      "case": "P0 FAQ 20+",
+      "pass": true,
+      "detail": 21
+    },
+    {
+      "case": "分块均不超过 700 tokens",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "case": "文档总数",
+      "pass": true,
+      "detail": 72
+    },
+    {
+      "case": "每篇都有 unknown_fields 声明",
+      "pass": true,
+      "detail": [
+        "boss_tips.md",
+        "protagonist.md",
+        "release_date.md",
+        "weapon_acquisition.md"
+      ]
+    },
+    {
+      "case": "分钟限流生效",
+      "pass": true,
+      "detail": [
+        true,
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "case": "限流有可读原因",
+      "pass": true,
+      "detail": "请求过于频繁，请稍后再试（每分钟 10 次）"
+    },
+    {
+      "case": "/health 200",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "聊天页 200",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "调试接口关闭",
+      "pass": true,
+      "detail": 404
+    },
+    {
+      "case": "/api/domain 关闭",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "/api/flows 关闭",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "匿名 session 为 uuid",
+      "pass": true,
+      "detail": "ae7a63eb-4695-4e20-989f-0ccd17430e30"
+    },
+    {
+      "case": "sender_id 带 anon 前缀",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "超长输入被拒",
+      "pass": true,
+      "detail": 503
+    }
+  ]
+}

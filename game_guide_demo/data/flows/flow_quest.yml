@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+# 任务 / 支线流程
+
+version: "3.1"
+
+flows:
+  quest_guide:
+    name: 任务流程
+    description: 查支线任务的开启条件、流程与奖励（只在问任务流程时用）
+    steps:
+      - collect: quest_name
+        description: 任务名称
+        next: quest_answer
+
+      - id: quest_answer
+        action: action_guide_lookup
+        next: END

@@ -1,0 +1,1115 @@
+{
+  "generated_at": "2026-11-08T17:14:26+08:00",
+  "game_id": "phantom_blade_zero",
+  "dry_run": true,
+  "rebuild": false,
+  "total_files": 72,
+  "success": 72,
+  "failed": 0,
+  "skipped": 0,
+  "total_chunks": 81,
+  "total_tokens": 24262,
+  "documents": [
+    {
+      "file": "weapons\\armybreaker.md",
+      "doc_id": "pbz:weapon:weapon_armybreaker",
+      "doc_type": "weapon",
+      "entity_id": "weapon_armybreaker",
+      "chunks": 1,
+      "tokens": 340,
+      "chunk_tokens": [
+        340
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide",
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2"
+      ]
+    },
+    {
+      "file": "weapons\\aureate.md",
+      "doc_id": "pbz:weapon:weapon_aureate",
+      "doc_type": "weapon",
+      "entity_id": "weapon_aureate",
+      "chunks": 1,
+      "tokens": 378,
+      "chunk_tokens": [
+        378
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide",
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2"
+      ]
+    },
+    {
+      "file": "weapons\\bai_shan_feng_lei_jian.md",
+      "doc_id": "pbz:weapon:weapon_bai_shan_feng_lei_jian",
+      "doc_type": "weapon",
+      "entity_id": "weapon_bai_shan_feng_lei_jian",
+      "chunks": 3,
+      "tokens": 1269,
+      "chunk_tokens": [
+        507,
+        601,
+        161
+      ],
+      "sources": [
+        "https://wiki.biligame.com/yingzhiren/%E7%99%BD%E5%B1%B1%E9%A3%8E%E9%9B%B7%E5%89%91",
+        "https://www.18183.com/gonglue/202611/9076289.html",
+        "https://www.18183.com/gonglue/202611/9076470.html",
+        "https://news.17173.com/content/10312026/200234719.shtml",
+        "https://wiki.biligame.com/yingzhiren/%E9%A3%8E%E9%9B%B7%E5%8F%8C%E5%88%80",
+        "https://3g.ali213.net/gl/html/1823077.html",
+        "https://www.wywyx.com/gonglue/601029.html"
+      ],
+      "note": "小于 300 tokens 的块: [2]（标题短段无法合并）"
+    },
+    {
+      "file": "weapons\\bonesaw.md",
+      "doc_id": "pbz:weapon:weapon_bonesaw",
+      "doc_type": "weapon",
+      "entity_id": "weapon_bonesaw",
+      "chunks": 1,
+      "tokens": 348,
+      "chunk_tokens": [
+        348
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2"
+      ]
+    },
+    {
+      "file": "weapons\\crescent_blade.md",
+      "doc_id": "pbz:weapon:weapon_crescent_blade",
+      "doc_type": "weapon",
+      "entity_id": "weapon_crescent_blade",
+      "chunks": 1,
+      "tokens": 384,
+      "chunk_tokens": [
+        384
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide"
+      ]
+    },
+    {
+      "file": "weapons\\fanatics_broken_blade.md",
+      "doc_id": "pbz:weapon:weapon_fanatics_broken_blade",
+      "doc_type": "weapon",
+      "entity_id": "weapon_fanatics_broken_blade",
+      "chunks": 1,
+      "tokens": 377,
+      "chunk_tokens": [
+        377
+      ],
+      "sources": [
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2",
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950"
+      ]
+    },
+    {
+      "file": "weapons\\jagged_steel.md",
+      "doc_id": "pbz:weapon:weapon_jagged_steel",
+      "doc_type": "weapon",
+      "entity_id": "weapon_jagged_steel",
+      "chunks": 1,
+      "tokens": 421,
+      "chunk_tokens": [
+        421
+      ],
+      "sources": [
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2",
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide"
+      ]
+    },
+    {
+      "file": "weapons\\juggernaut.md",
+      "doc_id": "pbz:weapon:weapon_juggernaut",
+      "doc_type": "weapon",
+      "entity_id": "weapon_juggernaut",
+      "chunks": 1,
+      "tokens": 351,
+      "chunk_tokens": [
+        351
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide"
+      ]
+    },
+    {
+      "file": "weapons\\outlaw_warblade.md",
+      "doc_id": "pbz:weapon:weapon_outlaw_warblade",
+      "doc_type": "weapon",
+      "entity_id": "weapon_outlaw_warblade",
+      "chunks": 2,
+      "tokens": 1045,
+      "chunk_tokens": [
+        611,
+        434
+      ],
+      "sources": [
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2",
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://gam3s.gg/phantom-blade-0/guides/phantom-blade-zero-best-weapon-and-combinations",
+        "https://wiki.biligame.com/yingzhiren/%E4%BA%A1%E5%91%BD%E6%96%A9%E9%A9%AC%E5%88%80"
+      ]
+    },
+    {
+      "file": "weapons\\parting_hooks.md",
+      "doc_id": "pbz:weapon:weapon_parting_hooks",
+      "doc_type": "weapon",
+      "entity_id": "weapon_parting_hooks",
+      "chunks": 1,
+      "tokens": 375,
+      "chunk_tokens": [
+        375
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide",
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2"
+      ]
+    },
+    {
+      "file": "weapons\\sanguine.md",
+      "doc_id": "pbz:weapon:weapon_sanguine",
+      "doc_type": "weapon",
+      "entity_id": "weapon_sanguine",
+      "chunks": 1,
+      "tokens": 403,
+      "chunk_tokens": [
+        403
+      ],
+      "sources": [
+        "https://gam3s.gg/phantom-blade-0/guides/phantom-blade-zero-best-weapon-and-combinations",
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2"
+      ]
+    },
+    {
+      "file": "weapons\\sanguine_reach.md",
+      "doc_id": "pbz:weapon:weapon_sanguine_reach",
+      "doc_type": "weapon",
+      "entity_id": "weapon_sanguine_reach",
+      "chunks": 1,
+      "tokens": 389,
+      "chunk_tokens": [
+        389
+      ],
+      "sources": [
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2",
+        "https://gam3s.gg/phantom-blade-0/guides/phantom-blade-zero-best-weapon-and-combinations"
+      ]
+    },
+    {
+      "file": "weapons\\scarlet_wraithblade.md",
+      "doc_id": "pbz:weapon:weapon_scarlet_wraithblade",
+      "doc_type": "weapon",
+      "entity_id": "weapon_scarlet_wraithblade",
+      "chunks": 1,
+      "tokens": 383,
+      "chunk_tokens": [
+        383
+      ],
+      "sources": [
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2",
+        "https://gam3s.gg/phantom-blade-0/guides/phantom-blade-zero-best-weapon-and-combinations"
+      ]
+    },
+    {
+      "file": "weapons\\soft_snake_sword.md",
+      "doc_id": "pbz:weapon:weapon_soft_snake_sword",
+      "doc_type": "weapon",
+      "entity_id": "weapon_soft_snake_sword",
+      "chunks": 1,
+      "tokens": 413,
+      "chunk_tokens": [
+        413
+      ],
+      "sources": [
+        "https://www.18183.com/gonglue/202611/9076470.html",
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950"
+      ]
+    },
+    {
+      "file": "weapons\\tianxuan_bronze_sword.md",
+      "doc_id": "pbz:weapon:weapon_tianxuan_bronze_sword",
+      "doc_type": "weapon",
+      "entity_id": "weapon_tianxuan_bronze_sword",
+      "chunks": 1,
+      "tokens": 410,
+      "chunk_tokens": [
+        410
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide",
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2"
+      ]
+    },
+    {
+      "file": "weapons\\white_serpent_crimson_viper.md",
+      "doc_id": "pbz:weapon:weapon_white_serpent_crimson_viper",
+      "doc_type": "weapon",
+      "entity_id": "weapon_white_serpent_crimson_viper",
+      "chunks": 1,
+      "tokens": 367,
+      "chunk_tokens": [
+        367
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2"
+      ]
+    },
+    {
+      "file": "weapons\\whiteshadow.md",
+      "doc_id": "pbz:weapon:weapon_whiteshadow",
+      "doc_type": "weapon",
+      "entity_id": "weapon_whiteshadow",
+      "chunks": 1,
+      "tokens": 391,
+      "chunk_tokens": [
+        391
+      ],
+      "sources": [
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide",
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2"
+      ]
+    },
+    {
+      "file": "weapons\\wild_oriole_sword.md",
+      "doc_id": "pbz:weapon:weapon_wild_oriole_sword",
+      "doc_type": "weapon",
+      "entity_id": "weapon_wild_oriole_sword",
+      "chunks": 1,
+      "tokens": 385,
+      "chunk_tokens": [
+        385
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide"
+      ]
+    },
+    {
+      "file": "weapons\\wooden_sanguine.md",
+      "doc_id": "pbz:weapon:weapon_wooden_sanguine",
+      "doc_type": "weapon",
+      "entity_id": "weapon_wooden_sanguine",
+      "chunks": 1,
+      "tokens": 330,
+      "chunk_tokens": [
+        330
+      ],
+      "sources": [
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2",
+        "https://gam3s.gg/phantom-blade-0/guides/phantom-blade-zero-best-weapon-and-combinations"
+      ]
+    },
+    {
+      "file": "bosses\\bai_chilian.md",
+      "doc_id": "pbz:boss:boss_bai_chilian",
+      "doc_type": "boss",
+      "entity_id": "boss_bai_chilian",
+      "chunks": 2,
+      "tokens": 1246,
+      "chunk_tokens": [
+        656,
+        590
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2",
+        "https://www.ign.com/wikis/phantom-blade-zero/Bai_Chilian,_Lady_of_the_Twin_Serpents",
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634627",
+        "https://phantombladezero.wiki.fextralife.com/Bai_Chilian_the_Sacrificial_Serpent"
+      ]
+    },
+    {
+      "file": "bosses\\bi_feng.md",
+      "doc_id": "pbz:boss:boss_bi_feng",
+      "doc_type": "boss",
+      "entity_id": "boss_bi_feng",
+      "chunks": 1,
+      "tokens": 238,
+      "chunk_tokens": [
+        238
+      ],
+      "sources": [
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide",
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2"
+      ]
+    },
+    {
+      "file": "bosses\\bi_yuan.md",
+      "doc_id": "pbz:boss:boss_bi_yuan",
+      "doc_type": "boss",
+      "entity_id": "boss_bi_yuan",
+      "chunks": 1,
+      "tokens": 250,
+      "chunk_tokens": [
+        250
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide",
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2"
+      ]
+    },
+    {
+      "file": "bosses\\cavalrybane.md",
+      "doc_id": "pbz:boss:boss_cavalrybane",
+      "doc_type": "boss",
+      "entity_id": "boss_cavalrybane",
+      "chunks": 1,
+      "tokens": 208,
+      "chunk_tokens": [
+        208
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide",
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2"
+      ]
+    },
+    {
+      "file": "bosses\\hua_betrothed.md",
+      "doc_id": "pbz:boss:boss_hua_betrothed",
+      "doc_type": "boss",
+      "entity_id": "boss_hua_betrothed",
+      "chunks": 1,
+      "tokens": 266,
+      "chunk_tokens": [
+        266
+      ],
+      "sources": [
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2",
+        "https://gam3s.gg/phantom-blade-0/guides/phantom-blade-zero-best-weapon-and-combinations"
+      ]
+    },
+    {
+      "file": "bosses\\hua_qianxiao.md",
+      "doc_id": "pbz:boss:boss_hua_qianxiao",
+      "doc_type": "boss",
+      "entity_id": "boss_hua_qianxiao",
+      "chunks": 2,
+      "tokens": 851,
+      "chunk_tokens": [
+        668,
+        183
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2",
+        "https://www.gamersky.com/handbook/202610/2236682.shtml",
+        "https://www.sina.cn/news/detail/5360040573405639.html"
+      ],
+      "note": "小于 300 tokens 的块: [1]（标题短段无法合并）"
+    },
+    {
+      "file": "bosses\\jagged_steel_boss.md",
+      "doc_id": "pbz:boss:boss_jagged_steel",
+      "doc_type": "boss",
+      "entity_id": "boss_jagged_steel",
+      "chunks": 1,
+      "tokens": 252,
+      "chunk_tokens": [
+        252
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2"
+      ]
+    },
+    {
+      "file": "bosses\\jing_ye.md",
+      "doc_id": "pbz:boss:boss_jing_ye",
+      "doc_type": "boss",
+      "entity_id": "boss_jing_ye",
+      "chunks": 2,
+      "tokens": 865,
+      "chunk_tokens": [
+        683,
+        182
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2",
+        "https://gam3s.gg/phantom-blade-0/guides/phantom-blade-zero-best-weapon-and-combinations",
+        "http://mp.weixin.qq.com/s?__biz=MzkwOTcyMjY5MQ==&mid=2247485265&idx=1&sn=474e6edccca848b0b3a9fe8636b348cf"
+      ],
+      "note": "小于 300 tokens 的块: [1]（标题短段无法合并）"
+    },
+    {
+      "file": "bosses\\meng_hua.md",
+      "doc_id": "pbz:boss:boss_meng_hua",
+      "doc_type": "boss",
+      "entity_id": "boss_meng_hua",
+      "chunks": 1,
+      "tokens": 298,
+      "chunk_tokens": [
+        298
+      ],
+      "sources": [
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide",
+        "http://mp.weixin.qq.com/s?__biz=Mzk4ODUzMzY2Nw==&mid=2247487649&idx=1&sn=bf85ee8a6539ce03f25977327485a992"
+      ]
+    },
+    {
+      "file": "bosses\\mu_xiaokui.md",
+      "doc_id": "pbz:boss:boss_mu_xiaokui",
+      "doc_type": "boss",
+      "entity_id": "boss_mu_xiaokui",
+      "chunks": 1,
+      "tokens": 260,
+      "chunk_tokens": [
+        260
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide"
+      ]
+    },
+    {
+      "file": "bosses\\soulclaimer.md",
+      "doc_id": "pbz:boss:boss_soulclaimer",
+      "doc_type": "boss",
+      "entity_id": "boss_soulclaimer",
+      "chunks": 1,
+      "tokens": 209,
+      "chunk_tokens": [
+        209
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide"
+      ]
+    },
+    {
+      "file": "bosses\\wu_lengshuang.md",
+      "doc_id": "pbz:boss:boss_wu_lengshuang",
+      "doc_type": "boss",
+      "entity_id": "boss_wu_lengshuang",
+      "chunks": 2,
+      "tokens": 970,
+      "chunk_tokens": [
+        502,
+        468
+      ],
+      "sources": [
+        "https://www.18183.com/gonglue/202611/9076470.html",
+        "https://www.18183.com/gonglue/202611/9076289.html",
+        "https://www.gamersky.com/handbook/202610/2238376.shtml",
+        "https://www.18183.com/gonglue/202611/9076460.html"
+      ]
+    },
+    {
+      "file": "bosses\\yubi.md",
+      "doc_id": "pbz:boss:boss_yubi",
+      "doc_type": "boss",
+      "entity_id": "boss_yubi",
+      "chunks": 2,
+      "tokens": 954,
+      "chunk_tokens": [
+        679,
+        275
+      ],
+      "sources": [
+        "https://wiki.biligame.com/yingzhiren/%E7%99%BD%E5%B1%B1%E9%A3%8E%E9%9B%B7%E5%89%91",
+        "https://www.18183.com/gonglue/202611/9076470.html",
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide",
+        "https://www.18183.com/gonglue/202611/s9jsp5io.html"
+      ],
+      "note": "小于 300 tokens 的块: [1]（标题短段无法合并）"
+    },
+    {
+      "file": "bosses\\yuding.md",
+      "doc_id": "pbz:boss:boss_yuding",
+      "doc_type": "boss",
+      "entity_id": "boss_yuding",
+      "chunks": 1,
+      "tokens": 253,
+      "chunk_tokens": [
+        253
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide"
+      ]
+    },
+    {
+      "file": "story\\chapter_a_souls_worth.md",
+      "doc_id": "pbz:story:story_a_souls_worth",
+      "doc_type": "story",
+      "entity_id": "story_a_souls_worth",
+      "chunks": 1,
+      "tokens": 294,
+      "chunk_tokens": [
+        294
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://www.gamer.org/phantom-blade-zero-all-weapons-locations-guide"
+      ]
+    },
+    {
+      "file": "story\\chapter_against_the_flow.md",
+      "doc_id": "pbz:story:story_against_the_flow",
+      "doc_type": "story",
+      "entity_id": "story_against_the_flow",
+      "chunks": 1,
+      "tokens": 246,
+      "chunk_tokens": [
+        246
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950"
+      ]
+    },
+    {
+      "file": "story\\chapter_heartless_remnants.md",
+      "doc_id": "pbz:story:story_heartless_remnants",
+      "doc_type": "story",
+      "entity_id": "story_heartless_remnants",
+      "chunks": 1,
+      "tokens": 292,
+      "chunk_tokens": [
+        292
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950"
+      ]
+    },
+    {
+      "file": "story\\chapter_hearts_trail.md",
+      "doc_id": "pbz:story:story_hearts_trail",
+      "doc_type": "story",
+      "entity_id": "story_hearts_trail",
+      "chunks": 1,
+      "tokens": 250,
+      "chunk_tokens": [
+        250
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950"
+      ]
+    },
+    {
+      "file": "story\\chapter_reckless_pursuit.md",
+      "doc_id": "pbz:story:story_reckless_pursuit",
+      "doc_type": "story",
+      "entity_id": "story_reckless_pursuit",
+      "chunks": 1,
+      "tokens": 251,
+      "chunk_tokens": [
+        251
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950"
+      ]
+    },
+    {
+      "file": "story\\chapter_snakes_reflection.md",
+      "doc_id": "pbz:story:story_snakes_reflection",
+      "doc_type": "story",
+      "entity_id": "story_snakes_reflection",
+      "chunks": 2,
+      "tokens": 852,
+      "chunk_tokens": [
+        660,
+        192
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950",
+        "https://thegameswiki.com/phantom-blade-zero/wiki/snakes-reflection",
+        "https://www.ign.com/wikis/phantom-blade-zero/Snake%27s_Reflection_Walkthrough",
+        "https://intoindiegames.com/walkthroughs/phantom-blade-zero-snakes-reflection-walkthrough-part-1"
+      ],
+      "note": "小于 300 tokens 的块: [1]（标题短段无法合并）"
+    },
+    {
+      "file": "story\\chapter_the_way_forward.md",
+      "doc_id": "pbz:story:story_the_way_forward",
+      "doc_type": "story",
+      "entity_id": "story_the_way_forward",
+      "chunks": 1,
+      "tokens": 248,
+      "chunk_tokens": [
+        248
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950"
+      ]
+    },
+    {
+      "file": "story\\chapter_town_of_death.md",
+      "doc_id": "pbz:story:story_town_of_death",
+      "doc_type": "story",
+      "entity_id": "story_town_of_death",
+      "chunks": 1,
+      "tokens": 218,
+      "chunk_tokens": [
+        218
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950"
+      ]
+    },
+    {
+      "file": "items\\baishan_headband.md",
+      "doc_id": "pbz:item:item_baishan_headband",
+      "doc_type": "item",
+      "entity_id": "item_baishan_headband",
+      "chunks": 1,
+      "tokens": 212,
+      "chunk_tokens": [
+        212
+      ],
+      "sources": [
+        "https://wiki.biligame.com/yingzhiren/%E7%99%BD%E5%B1%B1%E9%A3%8E%E9%9B%B7%E5%89%91",
+        "http://mp.weixin.qq.com/s?__biz=Mzk4ODUzMzY2Nw==&mid=2247487649&idx=1&sn=bf85ee8a6539ce03f25977327485a992"
+      ]
+    },
+    {
+      "file": "items\\bronze_essence.md",
+      "doc_id": "pbz:item:item_bronze_essence",
+      "doc_type": "item",
+      "entity_id": "item_bronze_essence",
+      "chunks": 1,
+      "tokens": 172,
+      "chunk_tokens": [
+        172
+      ],
+      "sources": [
+        "http://mp.weixin.qq.com/s?__biz=Mzk4ODUzMzY2Nw==&mid=2247487649&idx=1&sn=bf85ee8a6539ce03f25977327485a992"
+      ]
+    },
+    {
+      "file": "items\\dancer_ribbon.md",
+      "doc_id": "pbz:item:item_dancer_ribbon",
+      "doc_type": "item",
+      "entity_id": "item_dancer_ribbon",
+      "chunks": 1,
+      "tokens": 168,
+      "chunk_tokens": [
+        168
+      ],
+      "sources": [
+        "http://mp.weixin.qq.com/s?__biz=Mzk4ODUzMzY2Nw==&mid=2247487649&idx=1&sn=bf85ee8a6539ce03f25977327485a992"
+      ]
+    },
+    {
+      "file": "items\\flame_grip.md",
+      "doc_id": "pbz:item:item_flame_grip",
+      "doc_type": "item",
+      "entity_id": "item_flame_grip",
+      "chunks": 1,
+      "tokens": 155,
+      "chunk_tokens": [
+        155
+      ],
+      "sources": [
+        "http://mp.weixin.qq.com/s?__biz=Mzk4ODUzMzY2Nw==&mid=2247487649&idx=1&sn=bf85ee8a6539ce03f25977327485a992"
+      ]
+    },
+    {
+      "file": "items\\forged_metal.md",
+      "doc_id": "pbz:item:item_forged_metal",
+      "doc_type": "item",
+      "entity_id": "item_forged_metal",
+      "chunks": 1,
+      "tokens": 211,
+      "chunk_tokens": [
+        211
+      ],
+      "sources": [
+        "https://m.18183.com/gonglue/202610/9075221.html",
+        "https://www.ign.com/wikis/phantom-blade-zero/How_To_Upgrade_Weapons,_Medicines,_and_Trinkets"
+      ]
+    },
+    {
+      "file": "items\\infernal_mask.md",
+      "doc_id": "pbz:item:item_infernal_mask",
+      "doc_type": "item",
+      "entity_id": "item_infernal_mask",
+      "chunks": 1,
+      "tokens": 187,
+      "chunk_tokens": [
+        187
+      ],
+      "sources": [
+        "http://mp.weixin.qq.com/s?__biz=Mzk4ODUzMzY2Nw==&mid=2247487649&idx=1&sn=bf85ee8a6539ce03f25977327485a992"
+      ]
+    },
+    {
+      "file": "items\\iron_kill_mask.md",
+      "doc_id": "pbz:item:item_iron_kill_mask",
+      "doc_type": "item",
+      "entity_id": "item_iron_kill_mask",
+      "chunks": 1,
+      "tokens": 168,
+      "chunk_tokens": [
+        168
+      ],
+      "sources": [
+        "http://mp.weixin.qq.com/s?__biz=Mzk4ODUzMzY2Nw==&mid=2247487649&idx=1&sn=bf85ee8a6539ce03f25977327485a992"
+      ]
+    },
+    {
+      "file": "items\\org_token.md",
+      "doc_id": "pbz:item:item_org_token",
+      "doc_type": "item",
+      "entity_id": "item_org_token",
+      "chunks": 1,
+      "tokens": 154,
+      "chunk_tokens": [
+        154
+      ],
+      "sources": [
+        "http://mp.weixin.qq.com/s?__biz=Mzk4ODUzMzY2Nw==&mid=2247487649&idx=1&sn=bf85ee8a6539ce03f25977327485a992"
+      ]
+    },
+    {
+      "file": "items\\remnant_dust.md",
+      "doc_id": "pbz:item:item_remnant_dust",
+      "doc_type": "item",
+      "entity_id": "item_remnant_dust",
+      "chunks": 1,
+      "tokens": 265,
+      "chunk_tokens": [
+        265
+      ],
+      "sources": [
+        "https://m.18183.com/gonglue/202610/9075221.html",
+        "https://www.ign.com/wikis/phantom-blade-zero/How_To_Upgrade_Weapons,_Medicines,_and_Trinkets",
+        "https://wiki.biligame.com/yingzhiren/%E7%99%BD%E5%B1%B1%E9%A3%8E%E9%9B%B7%E5%89%91"
+      ]
+    },
+    {
+      "file": "items\\solvent.md",
+      "doc_id": "pbz:item:item_solvent",
+      "doc_type": "item",
+      "entity_id": "item_solvent",
+      "chunks": 1,
+      "tokens": 176,
+      "chunk_tokens": [
+        176
+      ],
+      "sources": [
+        "https://m.18183.com/gonglue/202610/9075221.html",
+        "https://www.ign.com/wikis/phantom-blade-zero/How_To_Upgrade_Weapons,_Medicines,_and_Trinkets"
+      ]
+    },
+    {
+      "file": "faq\\boss_tips.md",
+      "doc_id": "pbz:faq:faq_boss_tips",
+      "doc_type": "faq",
+      "entity_id": "faq_boss_tips",
+      "chunks": 1,
+      "tokens": 234,
+      "chunk_tokens": [
+        234
+      ],
+      "sources": [
+        "https://axeetech.com/phantom-blade-zero-weapons-checklist",
+        "https://gam3s.gg/phantom-blade-0/guides/phantom-blade-zero-best-weapon-and-combinations"
+      ]
+    },
+    {
+      "file": "faq\\chapter_count.md",
+      "doc_id": "pbz:faq:faq_chapter_count",
+      "doc_type": "faq",
+      "entity_id": "faq_chapter_count",
+      "chunks": 1,
+      "tokens": 279,
+      "chunk_tokens": [
+        279
+      ],
+      "sources": [
+        "https://news.17173.com/content/10102026/110702984.shtml",
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950"
+      ]
+    },
+    {
+      "file": "faq\\chinese_voice.md",
+      "doc_id": "pbz:faq:faq_chinese_voice",
+      "doc_type": "faq",
+      "entity_id": "faq_chinese_voice",
+      "chunks": 1,
+      "tokens": 151,
+      "chunk_tokens": [
+        151
+      ],
+      "sources": [
+        "https://pbz.s-game.com/zh-CN/",
+        "https://store.steampowered.com/app/4115450/"
+      ]
+    },
+    {
+      "file": "faq\\coop.md",
+      "doc_id": "pbz:faq:faq_coop",
+      "doc_type": "faq",
+      "entity_id": "faq_coop",
+      "chunks": 1,
+      "tokens": 137,
+      "chunk_tokens": [
+        137
+      ],
+      "sources": [
+        "https://pbz.s-game.com/zh-CN/",
+        "https://store.steampowered.com/app/4115450/"
+      ]
+    },
+    {
+      "file": "faq\\current_patch.md",
+      "doc_id": "pbz:faq:faq_current_patch",
+      "doc_type": "faq",
+      "entity_id": "faq_current_patch",
+      "chunks": 1,
+      "tokens": 178,
+      "chunk_tokens": [
+        178
+      ],
+      "sources": [
+        "https://pbz.s-game.com/zh-CN/news/patch-notes-2026-11-03/"
+      ]
+    },
+    {
+      "file": "faq\\difficulty_options.md",
+      "doc_id": "pbz:faq:faq_difficulty_options",
+      "doc_type": "faq",
+      "entity_id": "faq_difficulty_options",
+      "chunks": 1,
+      "tokens": 145,
+      "chunk_tokens": [
+        145
+      ],
+      "sources": [
+        "https://pbz.s-game.com/zh-CN/"
+      ]
+    },
+    {
+      "file": "faq\\dlc.md",
+      "doc_id": "pbz:faq:faq_dlc",
+      "doc_type": "faq",
+      "entity_id": "faq_dlc",
+      "chunks": 1,
+      "tokens": 151,
+      "chunk_tokens": [
+        151
+      ],
+      "sources": [
+        "https://pbz.s-game.com/zh-CN/"
+      ]
+    },
+    {
+      "file": "faq\\is_soulslike.md",
+      "doc_id": "pbz:faq:faq_is_soulslike",
+      "doc_type": "faq",
+      "entity_id": "faq_is_soulslike",
+      "chunks": 1,
+      "tokens": 277,
+      "chunk_tokens": [
+        277
+      ],
+      "sources": [
+        "https://axeetech.com/phantom-blade-zero-weapons-checklist",
+        "https://pbz.s-game.com/zh-CN/"
+      ]
+    },
+    {
+      "file": "faq\\main_story_length.md",
+      "doc_id": "pbz:faq:faq_main_story_length",
+      "doc_type": "faq",
+      "entity_id": "faq_main_story_length",
+      "chunks": 1,
+      "tokens": 171,
+      "chunk_tokens": [
+        171
+      ],
+      "sources": [
+        "https://news.17173.com/content/10102026/110702984.shtml"
+      ]
+    },
+    {
+      "file": "faq\\max_weapon_level.md",
+      "doc_id": "pbz:faq:faq_max_weapon_level",
+      "doc_type": "faq",
+      "entity_id": "faq_max_weapon_level",
+      "chunks": 1,
+      "tokens": 176,
+      "chunk_tokens": [
+        176
+      ],
+      "sources": [
+        "https://gam3s.gg/phantom-blade-0/guides/phantom-blade-zero-best-weapon-and-combinations"
+      ]
+    },
+    {
+      "file": "faq\\moyuan.md",
+      "doc_id": "pbz:faq:faq_moyuan",
+      "doc_type": "faq",
+      "entity_id": "faq_moyuan",
+      "chunks": 1,
+      "tokens": 184,
+      "chunk_tokens": [
+        184
+      ],
+      "sources": [
+        "https://pbz.s-game.com/zh-CN/",
+        "https://news.17173.com/content/10102026/110702984.shtml"
+      ]
+    },
+    {
+      "file": "faq\\multiple_endings.md",
+      "doc_id": "pbz:faq:faq_multiple_endings",
+      "doc_type": "faq",
+      "entity_id": "faq_multiple_endings",
+      "chunks": 1,
+      "tokens": 169,
+      "chunk_tokens": [
+        169
+      ],
+      "sources": [
+        "http://mp.weixin.qq.com/s?__biz=Mzk4ODUzMzY2Nw==&mid=2247487649&idx=1&sn=bf85ee8a6539ce03f25977327485a992"
+      ]
+    },
+    {
+      "file": "faq\\ng_plus.md",
+      "doc_id": "pbz:faq:faq_ng_plus",
+      "doc_type": "faq",
+      "entity_id": "faq_ng_plus",
+      "chunks": 1,
+      "tokens": 181,
+      "chunk_tokens": [
+        181
+      ],
+      "sources": [
+        "https://game8.co/games/Phantom-Blade-Zero/archives/634950"
+      ]
+    },
+    {
+      "file": "faq\\price.md",
+      "doc_id": "pbz:faq:faq_price",
+      "doc_type": "faq",
+      "entity_id": "faq_price",
+      "chunks": 1,
+      "tokens": 148,
+      "chunk_tokens": [
+        148
+      ],
+      "sources": [
+        "https://store.steampowered.com/app/4115450/"
+      ]
+    },
+    {
+      "file": "faq\\protagonist.md",
+      "doc_id": "pbz:faq:faq_protagonist",
+      "doc_type": "faq",
+      "entity_id": "faq_protagonist",
+      "chunks": 1,
+      "tokens": 116,
+      "chunk_tokens": [
+        116
+      ],
+      "sources": [
+        "https://pbz.s-game.com/zh-CN/"
+      ]
+    },
+    {
+      "file": "faq\\release_date.md",
+      "doc_id": "pbz:faq:faq_release_date",
+      "doc_type": "faq",
+      "entity_id": "faq_release_date",
+      "chunks": 1,
+      "tokens": 145,
+      "chunk_tokens": [
+        145
+      ],
+      "sources": [
+        "https://pbz.s-game.com/zh-CN/",
+        "https://store.steampowered.com/app/4115450/"
+      ]
+    },
+    {
+      "file": "faq\\upgrade_cost.md",
+      "doc_id": "pbz:faq:faq_upgrade_cost",
+      "doc_type": "faq",
+      "entity_id": "faq_upgrade_cost",
+      "chunks": 1,
+      "tokens": 188,
+      "chunk_tokens": [
+        188
+      ],
+      "sources": [
+        "https://m.18183.com/gonglue/202610/9075221.html",
+        "https://www.ign.com/wikis/phantom-blade-zero/How_To_Upgrade_Weapons,_Medicines,_and_Trinkets"
+      ]
+    },
+    {
+      "file": "faq\\upgrade_refund.md",
+      "doc_id": "pbz:faq:faq_upgrade_refund",
+      "doc_type": "faq",
+      "entity_id": "faq_upgrade_refund",
+      "chunks": 1,
+      "tokens": 213,
+      "chunk_tokens": [
+        213
+      ],
+      "sources": [
+        "https://gam3s.gg/phantom-blade-0/guides/phantom-blade-zero-best-weapon-and-combinations"
+      ]
+    },
+    {
+      "file": "faq\\upgrade_unlock.md",
+      "doc_id": "pbz:faq:faq_upgrade_unlock",
+      "doc_type": "faq",
+      "entity_id": "faq_upgrade_unlock",
+      "chunks": 1,
+      "tokens": 209,
+      "chunk_tokens": [
+        209
+      ],
+      "sources": [
+        "https://m.18183.com/gonglue/202610/9075221.html",
+        "https://www.ign.com/wikis/phantom-blade-zero/How_To_Upgrade_Weapons,_Medicines,_and_Trinkets"
+      ]
+    },
+    {
+      "file": "faq\\weapon_acquisition.md",
+      "doc_id": "pbz:faq:faq_weapon_acquisition",
+      "doc_type": "faq",
+      "entity_id": "faq_weapon_acquisition",
+      "chunks": 1,
+      "tokens": 170,
+      "chunk_tokens": [
+        170
+      ],
+      "sources": [
+        "https://www.destructoid.com/all-weapons-in-phantom-blade-zero-and-how-to-find-them/page/2",
+        "https://news.17173.com/content/10102026/110702984.shtml"
+      ]
+    },
+    {
+      "file": "faq\\weapon_count.md",
+      "doc_id": "pbz:faq:faq_weapon_count",
+      "doc_type": "faq",
+      "entity_id": "faq_weapon_count",
+      "chunks": 1,
+      "tokens": 242,
+      "chunk_tokens": [
+        242
+      ],
+      "sources": [
+        "https://news.17173.com/content/10102026/110702984.shtml",
+        "https://axeetech.com/phantom-blade-zero-weapons-checklist"
+      ]
+    }
+  ],
+  "failures": []
+}

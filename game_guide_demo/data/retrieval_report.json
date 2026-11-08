@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-11-08T15:39:45",
+  "offline": {
+    "total": 8,
+    "passed": 8,
+    "failed": 0,
+    "cases": [
+      {
+        "case": "槽位取值取 value",
+        "pass": true,
+        "detail": {
+          "boss_name": "玉璧",
+          "doc_type": "boss",
+          "version": ""
+        }
+      },
+      {
+        "case": "过滤表达式",
+        "pass": true,
+        "detail": {
+          "expr": "game_id == \"phantom_blade_zero\" and doc_type == \"boss\"",
+          "hint": "玉璧"
+        }
+      },
+      {
+        "case": "无槽位时只过滤 game_id",
+        "pass": true,
+        "detail": "game_id == \"phantom_blade_zero\""
+      },
+      {
+        "case": "表达式转义",
+        "pass": true,
+        "detail": "game_id == \"phantom_blade_zero\" and entity_id == \"x\\\" or \\\"1\""
+      },
+      {
+        "case": "未连接时返回空列表",
+        "pass": true,
+        "detail": 0
+      },
+      {
+        "case": "结果映射与实体加权",
+        "pass": true,
+        "detail": [
+          "白山风雷剑",
+          "白山风雷剑"
+        ]
+      },
+      {
+        "case": "同文档最多 2 个 chunk",
+        "pass": true,
+        "detail": 2
+      },
+      {
+        "case": "Milvus 异常不冒泡",
+        "pass": true,
+        "detail": 0
+      }
+    ]
+  }
+}

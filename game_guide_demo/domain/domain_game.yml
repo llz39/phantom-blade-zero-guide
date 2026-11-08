@@ -1,0 +1,108 @@
+# -*- coding: utf-8 -*-
+# 《影之刃零》攻略客服 Domain
+#
+# 单游戏：game_id 固定 phantom_blade_zero，不接受其他游戏。
+# 对未知信息一律使用“暂未收录”话术，不允许编造（限制文档 0.2）。
+
+version: "3.1"
+
+slots:
+  # === 游戏标识（固定，不接受用户改写） ===
+  game_id:
+    type: text
+    initial_value: phantom_blade_zero
+    mappings:
+      - type: controlled
+
+  # === 检索实体 ===
+  boss_name:
+    type: text
+    description: Boss 名称，例如“廿一号剑偶玉璧”
+    mappings:
+      - type: from_llm
+
+  weapon_name:
+    type: text
+    description: 武器名称，例如“白山风雷剑”
+    mappings:
+      - type: from_llm
+
+  item_name:
+    type: text
+    description: 材料或道具名称，例如“锻造金属”
+    mappings:
+      - type: from_llm
+
+  quest_name:
+    type: text
+    description: 任务或支线名称
+    mappings:
+      - type: from_llm
+
+  entity_name:
+    type: text
+    description: 无法判断类型时的实体名，仅用于检索加权
+
+  doc_type:
+    type: text
+    description: 限定检索类别：weapon/boss/story/item/faq
+
+  version:
+    type: text
+    description: 游戏版本，例如 1.0302256
+
+  # === 剧透开关 ===
+  spoiler_ack:
+    type: bool
+    description: 用户是否已确认可以展开剧透内容
+    mappings:
+      - type: from_llm
+
+# 话术
+responses:
+  utter_ask_boss_name:
+    - text: "要查哪个 Boss？写下名字，例如“玉璧”。"
+
+  utter_ask_weapon_name:
+    - text: "要查哪把武器？写下名字，例如“白山风雷剑”。"
+
+  utter_ask_quest_name:
+    - text: "要查哪个任务？写下任务名。"
+
+  utter_ask_item_name:
+    - text: "要查哪个材料？写下名称，例如“锻造金属”。"
+
+  utter_ask_entity_name:
+    - text: "写下你要查的武器、Boss、材料或章节名。"
+
+  utter_ask_spoiler_ack:
+    - text: "下面内容涉及剧情转折。要继续看吗？"
+      buttons:
+        - title: "展开（含剧透）"
+          payload: "/SetSlots(spoiler_ack=true)"
+        - title: "只看无剧透"
+          payload: "/SetSlots(spoiler_ack=false)"
+
+  # 兜底口径：既覆盖“不在本作范围”，也覆盖“知识库没有可核验资料”
+  utter_default:
+    - text: "这个问题按「暂未收录」处理：它要么不在《影之刃零》攻略范围内，要么知识库里没有可核验的资料。我只回答本作的武器、Boss、剧情与材料，没有来源的数值不会替你编；手上有游戏内截图可以发我核对。"
+
+  utter_cannot_answer:
+    - text: "暂未收录：知识库里没有这条可核验的记录。已知的是《影之刃零》2026-10-29 发售，当前补丁 1.0302256，其余细节建议以游戏内文本为准。"
+
+  # 越界与无关问题（其他游戏、现实话题、作弊/盗版）
+  utter_out_of_scope:
+    - text: "本助手只回答《影之刃零》相关内容，其他游戏、现实政治/医疗/法律、作弊或盗版问题无法提供帮助。"
+
+  utter_no_human_handoff:
+    - text: "这是一个个人作品集 Demo，没有人工客服。你可以换个问法，或直接提供游戏内截图。"
+
+  utter_can_do_something_else:
+    - text: "还想查别的吗？可以继续问武器获取、Boss 打法、升级材料或剧情。"
+
+  utter_spoiler_hidden:
+    - text: "这段涉及剧情转折，已按默认规则折叠。回复“展开剧透”我再详细说明。 [含剧透]"
+
+# Action 声明（自定义 Action 会自动注册，这里显式声明便于校验）
+actions:
+  - action_guide_lookup

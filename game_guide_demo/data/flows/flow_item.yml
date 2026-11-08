@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+# 材料 / 道具位置流程
+
+version: "3.1"
+
+flows:
+  item_location:
+    name: 材料位置
+    description: 查材料/道具在哪里拿（只在问“在哪拿/在哪刷”时用）
+    steps:
+      - collect: item_name
+        description: 材料名称
+        next: item_answer
+
+      - id: item_answer
+        action: action_guide_lookup
+        next: END

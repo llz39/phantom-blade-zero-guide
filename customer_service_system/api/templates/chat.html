@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="《影之刃零》影境攻略 —— 非官方攻略助手，回答带来源，未知直接说暂未收录。">
+<title>影之刃零 · 影境攻略</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%23A62B1F'/%3E%3Cpath d='M9 8h14v16H9z' fill='none' stroke='%23E8DFC8' stroke-width='1.6'/%3E%3Cpath d='M16 11v10M12.5 13.5l7 5M19.5 13.5l-7 5' stroke='%23E8DFC8' stroke-width='1.3'/%3E%3C/svg%3E">
+<style>
+  /* ============================================================
+     影境 · 水墨基调
+     墨黑 #12100E / 宣纸 #E8DFC8 / 朱砂 #A62B1F / 旧金 #B08A4A / 青灰 #5D6B66
+     ============================================================ */
+  :root{
+    --ink:#12100E;
+    --ink-soft:#2A2622;
+    --paper:#E8DFC8;
+    --paper-warm:#EFE7D3;
+    --paper-deep:#DCD1B6;
+    --cinnabar:#A62B1F;
+    --gold:#B08A4A;
+    --slate:#5D6B66;
+    --line:rgba(18,16,14,.14);
+    --shadow:0 10px 30px rgba(18,16,14,.10);
+    --serif:"Songti SC","STSong","Noto Serif SC","Source Han Serif SC","SimSun","Times New Roman",serif;
+    --kai:"Kaiti SC","STKaiti","KaiTi","Noto Serif SC",serif;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:var(--serif);
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:
+      /* 淡墨山影 */
+      radial-gradient(70% 45% at 12% 8%, rgba(93,107,102,.20), transparent 62%),
+      radial-gradient(55% 38% at 88% 2%, rgba(93,107,102,.16), transparent 60%),
+      radial-gradient(120% 60% at 50% 108%, rgba(18,16,14,.10), transparent 70%),
+      /* 竹影 */
+      repeating-linear-gradient(102deg, rgba(42,38,34,.045) 0 2px, transparent 2px 26px),
+      /* 旧纸纤维 */
+      repeating-linear-gradient(4deg, rgba(176,138,74,.05) 0 1px, transparent 1px 7px);
+    background-attachment:fixed;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.75;
+  }
+  /* 纸纹噪点：内联 SVG，无外部请求 */
+  body::before{
+    content:"";
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    opacity:.5;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='0.16'/></svg>");
+  }
+  /* 四角暗压，像旧卷轴边缘 */
+  body::after{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background:radial-gradient(120% 90% at 50% 50%, transparent 58%, rgba(18,16,14,.16) 100%);
+  }
+
+  .app{
+    position:relative; z-index:1;
+    max-width:1180px; margin:0 auto; padding:22px 22px 0;
+    height:100vh; height:100dvh;
+    display:grid; grid-template-rows:auto minmax(0,1fr) auto; gap:16px;
+    overflow:hidden;
+  }
+
+  /* ---------- 顶部 ---------- */
+  header.top{
+    display:flex; align-items:flex-start; justify-content:space-between; gap:18px;
+    padding-bottom:14px; border-bottom:1px solid var(--line);
+    animation:fadeUp .5s var(--ease) both;
+  }
+  .brand{display:flex; align-items:center; gap:14px; min-width:0}
+  .seal{
+    flex:0 0 auto; width:54px; height:54px; border-radius:3px;
+    background:var(--cinnabar); color:var(--paper-warm);
+    display:grid; place-items:center;
+    font-family:var(--kai); font-size:14px; line-height:1.2;
+    letter-spacing:.1em; writing-mode:vertical-rl; text-orientation:upright;
+    box-shadow:inset 0 0 0 2px rgba(232,223,200,.55), 0 6px 16px rgba(166,43,31,.24);
+    transform:rotate(-1.5deg);
+  }
+  .title-wrap{min-width:0}
+  h1{
+    margin:0; font-size:clamp(20px,2.4vw,27px); font-weight:600;
+    letter-spacing:.10em; color:var(--ink);
+    white-space:nowrap;
+  }
+  h1 .dot{color:var(--cinnabar); margin:0 .28em}
+  .sub{
+    margin:5px 0 0; font-size:12.5px; color:var(--slate);
+    letter-spacing:.22em;
+  }
+  .sub em{font-style:normal; color:var(--cinnabar); letter-spacing:.14em}
+
+  .meta{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+  .tag{
+    font-size:11.5px; letter-spacing:.14em; color:var(--slate);
+    border:1px solid var(--line); border-radius:2px; padding:4px 9px;
+    background:rgba(239,231,211,.55);
+  }
+  .tag.gold{color:#7A5C2A; border-color:rgba(176,138,74,.45)}
+  .link-btn{
+    appearance:none; border:1px solid rgba(166,43,31,.35); background:transparent;
+    color:var(--cinnabar); font-family:var(--serif); font-size:12px; letter-spacing:.16em;
+    padding:6px 12px; border-radius:2px; cursor:pointer;
+    transition:background .28s var(--ease), color .28s var(--ease), transform .28s var(--ease);
+  }
+  .link-btn:hover{background:rgba(166,43,31,.08); transform:translateY(-1px)}
+
+  /* ---------- 主体：卷轴 + 侧栏 ---------- */
+  .stage{
+    display:grid; grid-template-columns:minmax(0,1fr) 306px; gap:18px;
+    min-height:0; align-items:stretch;
+  }
+  .scroll{
+    position:relative; min-height:0;
+    display:grid; grid-template-rows:1fr auto;
+    border:1px solid var(--line); border-radius:3px;
+    background:
+      linear-gradient(180deg, rgba(239,231,211,.92), rgba(232,223,200,.86));
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  /* 卷轴上下轴杆 */
+  .scroll::before,.scroll::after{
+    content:""; position:absolute; left:0; right:0; height:10px;
+    background:
+      linear-gradient(180deg, rgba(18,16,14,.85), rgba(42,38,34,.92) 55%, rgba(176,138,74,.55));
+    opacity:.85;
+  }
+  .scroll::before{top:0}
+  .scroll::after{bottom:0; transform:rotate(180deg)}
+
+  .feed{
+    overflow-y:auto; padding:26px 22px 18px;
+    scroll-behavior:smooth; position:relative; z-index:1;
+    scrollbar-width:thin; scrollbar-color:rgba(93,107,102,.45) transparent;
+  }
+  /* 空白卷轴上的竖排水印（纯装饰） */
+  .watermark{
+    position:absolute; z-index:0; top:44px; right:26px;
+    writing-mode:vertical-rl; text-orientation:upright;
+    font-family:var(--kai); font-size:13px; letter-spacing:.52em;
+    color:rgba(18,16,14,.10); pointer-events:none; user-select:none;
+    line-height:2.2;
+  }
+  .feed::-webkit-scrollbar{width:8px}
+  .feed::-webkit-scrollbar-thumb{background:rgba(93,107,102,.35); border-radius:8px}
+
+  /* ---------- 消息 ---------- */
+  .turn{display:flex; margin:0 0 20px; animation:fadeUp .42s var(--ease) both}
+  .turn.user{justify-content:flex-end}
+  .bubble{
+    max-width:min(640px,86%); padding:13px 16px; border-radius:3px;
+    font-size:15px; line-height:1.85; white-space:pre-wrap; word-break:break-word;
+    position:relative;
+  }
+  .turn.user .bubble{
+    background:rgba(93,107,102,.13);
+    border:1px solid rgba(93,107,102,.28);
+    border-right:3px solid var(--slate);
+    color:var(--ink-soft);
+  }
+  .turn.bot .bubble{
+    background:linear-gradient(180deg, rgba(255,252,243,.92), rgba(245,238,222,.9));
+    border:1px solid var(--line);
+    border-left:3px solid var(--cinnabar);
+    box-shadow:0 4px 14px rgba(18,16,14,.06);
+  }
+  .who{
+    display:block; font-size:11px; letter-spacing:.24em; color:var(--slate);
+    margin-bottom:6px;
+  }
+  .turn.bot .who{color:var(--cinnabar)}
+  .unknown-flag{
+    display:inline-block; margin-top:10px; font-size:11.5px; letter-spacing:.14em;
+    color:#7A5C2A; border:1px dashed rgba(176,138,74,.6); padding:3px 8px; border-radius:2px;
+  }
+
+  /* 连接失败提示条 */
+  .notice{
+    display:none; margin:0 0 10px; padding:10px 12px; border-radius:2px;
+    border:1px solid rgba(166,43,31,.45); background:rgba(166,43,31,.07);
+    font-size:12.5px; line-height:1.75; color:#7E241A; letter-spacing:.02em;
+  }
+  .notice.on{display:block}
+  .notice b{letter-spacing:.12em}
+  .notice code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:11.5px; background:rgba(18,16,14,.06); padding:1px 5px; border-radius:2px;
+  }
+
+  /* 错误气泡：不要伪装成“暂未收录” */
+  .turn.bot .bubble.error{
+    border-left-color:#8A2B20;
+    background:rgba(166,43,31,.06);
+  }
+
+  /* 回答反馈：有用 / 没用 */
+  .fb{display:flex; gap:8px; align-items:center; margin-top:11px}
+  .fb button{
+    appearance:none; cursor:pointer; font-family:var(--serif); font-size:11.5px;
+    letter-spacing:.08em; color:var(--slate); background:transparent;
+    border:1px solid rgba(93,107,102,.32); border-radius:2px; padding:3px 9px;
+    transition:color .26s var(--ease), border-color .26s var(--ease), background .26s var(--ease);
+  }
+  .fb button:hover{color:var(--cinnabar); border-color:rgba(166,43,31,.4); background:rgba(166,43,31,.05)}
+  .fb .done{font-size:11.5px; color:var(--slate); letter-spacing:.06em}
+
+  /* 来源卡片 */
+  .sources{margin-top:12px; display:grid; gap:8px}
+  .src{
+    display:block; text-decoration:none; color:inherit;
+    border:1px solid rgba(176,138,74,.35); border-radius:2px;
+    background:rgba(232,223,200,.55); padding:9px 11px;
+    transition:transform .26s var(--ease), border-color .26s var(--ease), background .26s var(--ease);
+  }
+  .src:hover{transform:translateY(-1px); border-color:rgba(166,43,31,.45); background:rgba(239,231,211,.85)}
+  .src .t{font-size:13px; font-weight:600; letter-spacing:.02em; line-height:1.5}
+  .src .m{font-size:11.5px; color:var(--slate); margin-top:3px; letter-spacing:.06em}
+  .lvl{
+    float:right; font-size:10.5px; letter-spacing:.1em; padding:1px 6px; border-radius:2px;
+    border:1px solid currentColor; margin-left:8px;
+  }
+  .lvl.S1{color:#8A2B20}
+  .lvl.S2{color:#8A6A2B}
+  .lvl.S3{color:#5D6B66}
+  .lvl.S4{color:#7A5C2A; opacity:.85}
+
+  /* 输入区 */
+  .composer{
+    border-top:1px solid var(--line); padding:14px 18px 18px;
+    background:linear-gradient(180deg, rgba(232,223,200,.4), rgba(220,209,182,.72));
+  }
+  .quick{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px}
+  .chip{
+    appearance:none; cursor:pointer; font-family:var(--serif); font-size:12.5px;
+    color:var(--ink-soft); background:rgba(255,252,243,.7);
+    border:1px solid var(--line); border-radius:2px; padding:5px 11px;
+    letter-spacing:.08em;
+    transition:background .26s var(--ease), color .26s var(--ease), border-color .26s var(--ease);
+  }
+  .chip:hover{background:rgba(166,43,31,.08); border-color:rgba(166,43,31,.35); color:var(--cinnabar)}
+
+  .input-row{display:flex; gap:10px; align-items:flex-end}
+  textarea{
+    flex:1 1 auto; resize:none; min-height:52px; max-height:132px;
+    font-family:var(--serif); font-size:15px; line-height:1.7; color:var(--ink);
+    padding:13px 14px; border:1px solid rgba(18,16,14,.22); border-radius:3px;
+    background:rgba(255,252,243,.85);
+    outline:none;
+    transition:border-color .26s var(--ease), box-shadow .26s var(--ease);
+  }
+  textarea::placeholder{color:rgba(93,107,102,.85); letter-spacing:.08em}
+  textarea:focus{border-color:rgba(166,43,31,.5); box-shadow:0 0 0 3px rgba(166,43,31,.08)}
+
+  .ask{
+    flex:0 0 auto; position:relative;
+    font-family:var(--kai); font-size:16px; letter-spacing:.34em; text-indent:.34em;
+    color:var(--paper-warm); background:var(--ink);
+    border:none; border-radius:3px; padding:15px 20px; cursor:pointer;
+    transition:background .3s var(--ease), transform .3s var(--ease);
+  }
+  .ask:hover{background:#241F1A; transform:translateY(-1px)}
+  .ask:disabled{opacity:.45; cursor:not-allowed; transform:none}
+  .hint{margin:9px 2px 0; font-size:11.5px; color:var(--slate); letter-spacing:.06em}
+
+  /* ---------- 侧栏 ---------- */
+  aside.panel{
+    border:1px solid var(--line); border-radius:3px; padding:16px 15px;
+    background:linear-gradient(180deg, rgba(239,231,211,.8), rgba(232,223,200,.6));
+    box-shadow:var(--shadow);
+    display:grid; grid-template-rows:auto 1fr auto; gap:12px;
+    min-height:0;
+  }
+  .panel h2{
+    margin:0; font-size:13px; letter-spacing:.28em; color:var(--slate);
+    font-weight:600; display:flex; align-items:center; gap:8px;
+  }
+  .panel h2::after{content:""; flex:1; height:1px; background:var(--line)}
+  .panel-body{overflow-y:auto; min-height:0; font-size:13px; color:var(--ink-soft)}
+  .empty{
+    color:var(--slate); font-size:12.5px; line-height:1.9; letter-spacing:.04em;
+    border-left:2px solid rgba(176,138,74,.5); padding-left:10px;
+  }
+  .vnote{
+    border-top:1px solid var(--line); padding-top:11px;
+    font-size:11.5px; line-height:1.85; color:var(--slate); letter-spacing:.05em;
+  }
+  .vnote b{color:var(--cinnabar); font-weight:600; letter-spacing:.12em}
+
+  /* 竖排小字 */
+  .vertical{
+    writing-mode:vertical-rl; text-orientation:upright;
+    font-family:var(--kai); font-size:11.5px; letter-spacing:.36em;
+    color:rgba(93,107,102,.75);
+  }
+
+  /* 墨迹加载 */
+  .ink{display:inline-flex; gap:7px; align-items:center; padding:2px 0}
+  .ink i{
+    width:7px; height:7px; border-radius:50%; background:var(--ink-soft); opacity:.35;
+    animation:inkSpread 1.05s var(--ease) infinite;
+  }
+  .ink i:nth-child(2){animation-delay:.14s}
+  .ink i:nth-child(3){animation-delay:.28s}
+  @keyframes inkSpread{
+    0%,100%{transform:scale(.7); opacity:.28; filter:blur(0)}
+    45%{transform:scale(1.25); opacity:.62; filter:blur(.4px)}
+  }
+
+  @keyframes fadeUp{from{opacity:0; transform:translateY(9px)} to{opacity:1; transform:none}}
+
+  /* 底部声明 */
+  footer.foot{
+    padding:12px 2px 18px; font-size:11.5px; color:var(--slate);
+    display:flex; gap:14px; flex-wrap:wrap; justify-content:space-between;
+    letter-spacing:.05em;
+  }
+  footer.foot a{color:var(--slate); text-decoration:none; border-bottom:1px dotted rgba(93,107,102,.6)}
+  footer.foot a:hover{color:var(--cinnabar); border-color:var(--cinnabar)}
+
+  /* 移动端：单列，来源抽屉从底部弹出 */
+  @media (max-width: 900px){
+    .app{padding:16px 14px 0; gap:12px}
+    .stage{grid-template-columns:1fr}
+    aside.panel{
+      position:fixed; left:0; right:0; bottom:0; z-index:20;
+      max-height:62vh; border-radius:10px 10px 0 0;
+      transform:translateY(102%); transition:transform .34s var(--ease);
+      padding-bottom:calc(16px + env(safe-area-inset-bottom));
+    }
+    aside.panel.open{transform:translateY(0)}
+    .panel-toggle{display:inline-block}
+    .vertical{display:none}
+    .watermark{display:none}
+    h1{font-size:19px; letter-spacing:.04em}
+    .seal{width:46px; height:46px; font-size:12.5px; letter-spacing:.06em}
+    .sub{font-size:10.5px; letter-spacing:.06em; line-height:1.7}
+    .bubble{max-width:92%}
+    .feed{padding:20px 14px 12px}
+    .composer{padding:12px 12px 14px}
+    .ask{padding:14px 15px; letter-spacing:.24em; text-indent:.24em}
+  }
+  @media (min-width: 901px){ .panel-toggle{display:none} }
+
+  /* 尊重系统减少动效 */
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important}
+    .feed{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header class="top">
+    <div class="brand">
+      <div class="seal" aria-hidden="true">影境<br>攻略</div>
+      <div class="title-wrap">
+        <h1>影之刃零<span class="dot">·</span>影境攻略</h1>
+        <p class="sub">非官方攻略助手<em>｜</em>答案带来源<em>｜</em>查不到就说暂未收录</p>
+      </div>
+    </div>
+    <div class="meta">
+      <span class="tag gold">补丁 1.0302256</span>
+      <span class="tag vertical-tag">功夫朋克 · 影境江湖</span>
+      <button class="link-btn panel-toggle" id="panelToggle" type="button" aria-expanded="false">来源</button>
+    </div>
+  </header>
+
+  <div class="stage">
+    <main class="scroll">
+      <div class="watermark" aria-hidden="true">影境江湖　寻心之旅</div>
+      <div class="feed" id="feed" aria-live="polite" aria-label="对话记录">
+        <div class="turn bot">
+          <div class="bubble">
+            <span class="who">影境 · 引路人</span>
+            在下只答《影之刃零》。可查武器获取与机制、Boss 打法、升级材料、章节剧情。
+
+            每一句都附来源；没有可靠来源的，我会直说“暂未收录”，不替你猜数值。
+          </div>
+        </div>
+      </div>
+
+      <div class="composer">
+        <div class="notice" id="notice" role="status"></div>
+        <div class="quick" id="quick">
+          <button class="chip" type="button">白山风雷剑怎么获得</button>
+          <button class="chip" type="button">玉璧怎么打</button>
+          <button class="chip" type="button">强化武器要什么材料</button>
+          <button class="chip" type="button">一共几章</button>
+          <button class="chip" type="button">魔渊是谁</button>
+        </div>
+        <div class="input-row">
+          <textarea id="input" rows="1" maxlength="300"
+            placeholder="写下你的问题…（Enter 发送，Shift+Enter 换行）"
+            aria-label="输入你的问题"></textarea>
+          <button class="ask" id="send" type="button">问剑</button>
+        </div>
+        <p class="hint">仅限《影之刃零》。不回答其他游戏、现实话题、作弊或盗版。</p>
+      </div>
+    </main>
+
+    <aside class="panel" id="panel" aria-label="来源与说明">
+      <h2>来源</h2>
+      <div class="panel-body" id="panelBody">
+        <p class="empty">提问后，这里会列出本条回答引用的攻略来源、发布时间与可信度等级。</p>
+      </div>
+      <div class="vnote">
+        <b>核验口径</b><br>
+        S1 官方 · S2 访谈 · S3 攻略媒体 · S4 社区线索。<br>
+        数值类信息若无交叉验证，会标注“暂未收录”，不做估算。
+      </div>
+    </aside>
+  </div>
+
+  <footer class="foot">
+    <span>非官方作品集 Demo · 内容为公开来源的摘要与短引用，不含攻略原文与游戏素材</span>
+    <span>会话匿名，无需登录</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var feed = document.getElementById("feed");
+  var input = document.getElementById("input");
+  var sendBtn = document.getElementById("send");
+  var quick = document.getElementById("quick");
+  var panel = document.getElementById("panel");
+  var panelBody = document.getElementById("panelBody");
+  var panelToggle = document.getElementById("panelToggle");
+  var notice = document.getElementById("notice");
+
+  var SESSION_KEY = "pbz.session_id";
+  var HISTORY_KEY = "pbz.history";
+  var busy = false;
+  var backendReady = null;   // null 未知 / true 已连 / false 未连
+
+  /* ---------------- 会话 ---------------- */
+  function getSession() {
+    try { return localStorage.getItem(SESSION_KEY) || ""; } catch (e) { return ""; }
+  }
+  function setSession(id) {
+    try { localStorage.setItem(SESSION_KEY, id); } catch (e) {}
+  }
+
+  /* ---------------- 历史（刷新可续） ---------------- */
+  function loadHistory() {
+    try {
+      var raw = localStorage.getItem(HISTORY_KEY);
+      if (!raw) return;
+      var items = JSON.parse(raw);
+      if (!Array.isArray(items)) return;
+      items.slice(-20).forEach(function (item) {
+        addTurn(item.role, item.text, item.sources || [], item.unknown, true);
+      });
+    } catch (e) {}
+  }
+  function saveHistory(role, text, sources, unknown) {
+    try {
+      var raw = localStorage.getItem(HISTORY_KEY);
+      var items = raw ? JSON.parse(raw) : [];
+      if (!Array.isArray(items)) items = [];
+      items.push({ role: role, text: text, sources: sources || [], unknown: !!unknown });
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(items.slice(-40)));
+    } catch (e) {}
+  }
+
+  /* ---------------- 渲染 ---------------- */
+  function addTurn(role, text, sources, unknown, silent, kind) {
+    var wrap = document.createElement("div");
+    wrap.className = "turn " + role;
+
+    var bubble = document.createElement("div");
+    bubble.className = "bubble" + (kind === "error" ? " error" : "");
+
+    var who = document.createElement("span");
+    who.className = "who";
+    who.textContent = role === "user" ? "你" : (kind === "error" ? "提示" : "影境 · 引路人");
+    bubble.appendChild(who);
+
+    bubble.appendChild(document.createTextNode(text));
+
+    // 只有真实的“未知”才打标签；连接失败不是内容问题，不能伪装成暂未收录
+    if (unknown && role === "bot" && kind !== "error") {
+      var flag = document.createElement("span");
+      flag.className = "unknown-flag";
+      flag.textContent = "暂未收录 · 无可靠来源";
+      bubble.appendChild(flag);
+    }
+
+    if (sources && sources.length) {
+      bubble.appendChild(renderSources(sources));
+    }
+
+    // 反馈只挂在“真实回答”上：错误提示、加载中不加
+    if (role === "bot" && kind !== "error" && !silent) {
+      bubble.appendChild(renderFeedback());
+    }
+
+    wrap.appendChild(bubble);
+    feed.appendChild(wrap);
+    feed.scrollTop = feed.scrollHeight;
+
+    if (!silent) {
+      if (kind === "error") return;      // 错误不写历史，避免刷新后还看到旧报错
+      saveHistory(role, text, sources, unknown);
+      if (role === "bot") renderPanel(sources);
+    }
+  }
+
+  function renderSources(sources) {
+    var box = document.createElement("div");
+    box.className = "sources";
+    sources.forEach(function (s) {
+      var a = document.createElement("a");
+      a.className = "src";
+      a.href = s.source || "#";
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+
+      var lvl = document.createElement("span");
+      lvl.className = "lvl " + (s.source_level || "S3");
+      lvl.textContent = levelLabel(s.source_level);
+      a.appendChild(lvl);
+
+      var t = document.createElement("div");
+      t.className = "t";
+      t.textContent = s.title || "未命名来源";
+      a.appendChild(t);
+
+      var m = document.createElement("div");
+      m.className = "m";
+      var bits = [];
+      if (s.doc_type) bits.push(typeLabel(s.doc_type));
+      if (s.updated_at) bits.push("更新 " + s.updated_at);
+      if (s.version) bits.push("v" + s.version);
+      m.textContent = bits.join(" · ");
+      a.appendChild(m);
+
+      box.appendChild(a);
+    });
+    return box;
+  }
+
+  function renderFeedback() {
+    var row = document.createElement("div");
+    row.className = "fb";
+    [{ label: "有用", rating: 1 }, { label: "没用", rating: -1 }].forEach(function (opt) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.textContent = opt.label;
+      btn.addEventListener("click", function () {
+        if (row.dataset.sent) return;
+        row.dataset.sent = "1";
+        row.innerHTML = "";
+        var done = document.createElement("span");
+        done.className = "done";
+        done.textContent = "已记录，多谢";
+        row.appendChild(done);
+        fetch("/api/feedback", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "same-origin",
+          body: JSON.stringify({ session_id: getSession() || "unknown", rating: opt.rating })
+        }).catch(function () {});
+      });
+      row.appendChild(btn);
+    });
+    return row;
+  }
+
+  function levelLabel(level) {
+    if (level === "S1") return "官方";
+    if (level === "S2") return "访谈";
+    if (level === "S4") return "待核验";
+    return "媒体";
+  }
+  function typeLabel(type) {
+    var map = { weapon: "武器", boss: "Boss", story: "剧情", item: "材料", faq: "常见问题" };
+    return map[type] || type;
+  }
+
+  function renderPanel(sources) {
+    panelBody.innerHTML = "";
+    if (!sources || !sources.length) {
+      var p = document.createElement("p");
+      p.className = "empty";
+      p.textContent = "本条回答没有命中可引用的来源，因此按规则不给出确定结论。";
+      panelBody.appendChild(p);
+      return;
+    }
+    panelBody.appendChild(renderSources(sources));
+  }
+
+  function addLoading() {
+    var wrap = document.createElement("div");
+    wrap.className = "turn bot";
+    wrap.id = "loading";
+    var bubble = document.createElement("div");
+    bubble.className = "bubble";
+    var who = document.createElement("span");
+    who.className = "who";
+    who.textContent = "影境 · 引路人";
+    bubble.appendChild(who);
+    var ink = document.createElement("span");
+    ink.className = "ink";
+    ink.innerHTML = "<i></i><i></i><i></i>";
+    bubble.appendChild(ink);
+    wrap.appendChild(bubble);
+    feed.appendChild(wrap);
+    feed.scrollTop = feed.scrollHeight;
+  }
+  function removeLoading() {
+    var el = document.getElementById("loading");
+    if (el) el.remove();
+  }
+
+  /* ---------------- 后端连通性 ---------------- */
+  function showNotice(html) {
+    notice.innerHTML = html;
+    notice.classList.add("on");
+  }
+  function hideNotice() {
+    notice.classList.remove("on");
+    notice.innerHTML = "";
+  }
+
+  async function probeBackend() {
+    var controller = new AbortController();
+    var timer = setTimeout(function () { controller.abort(); }, 3500);
+    try {
+      var resp = await fetch("/health", {
+        credentials: "same-origin", cache: "no-store",
+        signal: controller.signal
+      });
+      if (!resp.ok) throw new Error("health " + resp.status);
+      var data = await resp.json().catch(function () { return {}; });
+      backendReady = true;
+      if (data && data.agent_ready === false) {
+        showNotice("<b>后端已连接，但 Agent 未就绪。</b> 检查 <code>.env</code> 里的 "
+          + "<code>QWEN_API_KEY</code>，改完重启服务。");
+      } else if (data && data.retriever_ready === false) {
+        showNotice("<b>检索器未连接。</b> Milvus 没起来或 <code>MILVUS_URI</code> 不对，"
+          + "此时问答只会回答“暂未收录”。");
+      } else {
+        hideNotice();
+      }
+    } catch (e) {
+      backendReady = false;
+      showNotice("<b>后端未连接。</b> 现在打开的只是页面本身，"
+        + "<code>/api/chat</code> 不存在，所以点“问剑”一定失败。<br>"
+        + "先启动服务：<code>uvicorn app:app --port 8000</code>，"
+        + "再访问 <code>http://127.0.0.1:8000/</code>。");
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  /* ---------------- 发送 ---------------- */
+  async function send(text) {
+    text = (text || "").trim();
+    if (!text || busy) return;
+
+    busy = true;
+    sendBtn.disabled = true;
+    addTurn("user", text, [], false, false);
+    input.value = "";
+    autoGrow();
+    addLoading();
+
+    try {
+      var resp = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "same-origin",
+        body: JSON.stringify({ message: text, session_id: getSession() || null })
+      });
+
+      removeLoading();
+
+      if (resp.status === 429) {
+        addTurn("bot", "问得太急了。每分钟最多 10 次，每天 100 次，稍等再来。", [], false, false, "error");
+        return;
+      }
+      if (resp.status === 404 || resp.status === 405 || resp.status === 501) {
+        backendReady = false;
+        showNotice("<b>接口不存在（HTTP " + resp.status + "）。</b> 当前页面不是由 FastAPI 提供的，"
+          + "请改用 <code>http://127.0.0.1:8000/</code> 访问。");
+        addTurn("bot", "这个页面没有连上后端接口，所以问题送不出去。请用 uvicorn 启动服务后，"
+          + "打开 http://127.0.0.1:8000/ 再问。", [], false, false, "error");
+        return;
+      }
+      if (!resp.ok) {
+        var detail = "服务处理异常（HTTP " + resp.status + "）。";
+        try {
+          var err = await resp.json();
+          if (err && err.detail) detail = err.detail;
+        } catch (e2) {}
+        addTurn("bot", detail, [], false, false, "error");
+        return;
+      }
+
+      var data = await resp.json();
+      backendReady = true;
+      if (data.session_id) setSession(data.session_id);
+      addTurn("bot", data.text || "暂未收录。", data.sources || [], !!data.unknown, false);
+    } catch (e) {
+      removeLoading();
+      var offline = (e && (e.name === "TypeError" || e.name === "AbortError"));
+      if (offline) {
+        backendReady = false;
+        showNotice("<b>请求没有送达后端。</b> 服务可能没启动、端口不对，或被浏览器拦截。<br>"
+          + "启动命令：<code>uvicorn app:app --port 8000</code>，访问 <code>http://127.0.0.1:8000/</code>。");
+        addTurn("bot", "连接失败：请求没有送到后端。这不是知识库的问题，"
+          + "先确认服务已启动（uvicorn app:app --port 8000），再用 8000 端口访问本页。",
+          [], false, false, "error");
+      } else {
+        addTurn("bot", "请求出错：" + (e && e.message ? e.message : "未知错误"), [], false, false, "error");
+      }
+    } finally {
+      busy = false;
+      sendBtn.disabled = false;
+      input.focus();
+    }
+  }
+
+  /* ---------------- 交互 ---------------- */
+  function autoGrow() {
+    input.style.height = "auto";
+    input.style.height = Math.min(input.scrollHeight, 132) + "px";
+  }
+
+  sendBtn.addEventListener("click", function () { send(input.value); });
+
+  input.addEventListener("input", autoGrow);
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      send(input.value);
+    }
+  });
+
+  quick.addEventListener("click", function (e) {
+    if (e.target && e.target.classList.contains("chip")) {
+      send(e.target.textContent);
+    }
+  });
+
+  panelToggle.addEventListener("click", function () {
+    var open = panel.classList.toggle("open");
+    panelToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+
+  /* 首次进入：先探活，再取会话（后端会写 HttpOnly Cookie） */
+  probeBackend().then(function () {
+    if (!backendReady) return null;
+    return fetch("/api/chat/session", { credentials: "same-origin" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) { if (data && data.session_id) setSession(data.session_id); })
+      .catch(function () {});
+  });
+
+  loadHistory();
+  autoGrow();
+  input.focus();
+})();
+</script>
+</body>
+</html>

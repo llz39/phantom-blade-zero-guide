@@ -1,0 +1,81 @@
+{
+  "blocker": 5,
+  "warning": 2,
+  "checks": [
+    {
+      "level": "PASS",
+      "name": "依赖包",
+      "detail": "8 个全部可导入"
+    },
+    {
+      "level": "PASS",
+      "name": "Python",
+      "detail": "3.14.6"
+    },
+    {
+      "level": "PASS",
+      "name": "Domain",
+      "detail": "9 个槽位"
+    },
+    {
+      "level": "PASS",
+      "name": "Flows",
+      "detail": "boss_guide, item_location, quest_guide"
+    },
+    {
+      "level": "PASS",
+      "name": "知识库",
+      "detail": "72 篇 {'weapon': 19, 'boss': 14, 'story': 8, 'item': 10, 'faq': 21}"
+    },
+    {
+      "level": "PASS",
+      "name": "来源清单",
+      "detail": "sources.jsonl"
+    },
+    {
+      "level": "PASS",
+      "name": "检索器类",
+      "detail": "MilvusRetriever, collection=game_guide_chunks"
+    },
+    {
+      "level": "FAIL",
+      "name": ".env",
+      "detail": "不存在，先 cp .env.example .env 并填写"
+    },
+    {
+      "level": "FAIL",
+      "name": "env:QWEN_API_KEY",
+      "detail": "缺失（LLM 与 embedding 共用）"
+    },
+    {
+      "level": "FAIL",
+      "name": "env:MILVUS_URI",
+      "detail": "缺失（Milvus 地址）"
+    },
+    {
+      "level": "WARN",
+      "name": "env:MYSQL_HOST",
+      "detail": "未设置，将用默认 127.0.0.1"
+    },
+    {
+      "level": "WARN",
+      "name": "env:MYSQL_DB",
+      "detail": "未设置，将用默认 game_guide"
+    },
+    {
+      "level": "PASS",
+      "name": "env:EMBEDDING_DIM",
+      "detail": "1024"
+    },
+    {
+      "level": "FAIL",
+      "name": "MySQL 连接",
+      "detail": "OperationalError: (1045, \"Access denied for user 'root'@'localhost' (using password: NO)\")"
+    },
+    {
+      "level": "FAIL",
+      "name": "Milvus 连接",
+      "detail": "http://localhost:19530 -> MilvusException: <MilvusException: (code=2, message=Fail connecting to server on localhost:19530, illegal connection params or server unavailable)>"
+    }
+  ]
+}

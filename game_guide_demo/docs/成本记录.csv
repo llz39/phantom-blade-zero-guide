@@ -1,0 +1,8 @@
+﻿date,item,requests,tokens_in,tokens_out,cost_cny,note
+2026-11-08,LLM API,340,420000,60000,0.40,自检+对话+4 轮 120 题评测（含重跑）；按 DashScope 单价估算
+2026-11-08,Embedding API,900,180000,0,0.10,灌库 2 轮 + 校验 + 评测 120×4；text-embedding-v4
+2026-11-08,cost_log,1,2709,851,0.0039,HTTP 请求自动记账（scripts 直连 Agent，不计入）
+2026-11-08,Milvus,0,0,0,0.00,Zilliz Cloud Serverless 免费版；73 向量
+2026-11-08,MySQL,0,0,0,0.00,本机实例；guide_doc 72 行
+2026-11-08,托管,0,0,0,0.00,未部署
+2026-11-08,域名,0,0,0,0.00,先用平台子域名

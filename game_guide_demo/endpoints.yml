@@ -1,0 +1,60 @@
+# -*- coding: utf-8 -*-
+# 端点配置：所有密钥一律走环境变量，禁止写死
+#
+# 变量清单见 game_guide_demo/.env.example
+
+models:
+  # 回答与结构化抽取共用同一个低价模型，不做多模型投票（限制文档 9.3）
+  default:
+    type: openai
+    model: ${LLM_MODEL:qwen3.8-flash}
+    api_key: ${QWEN_API_KEY}
+    api_base: ${LLM_API_BASE:https://dashscope.aliyuncs.com/compatible-mode/v1}
+    temperature: 0.1
+    # 单次输出 ≤ 800 tokens（限制文档 9.2）
+    max_tokens: 800
+    timeout: 60
+    enable_thinking: false
+
+embeddings:
+  # 统一走 embedding API，禁止在 Web 容器加载本地 BGE
+  default:
+    type: openai
+    model: ${EMBEDDING_MODEL:text-embedding-v4}
+    api_key: ${QWEN_API_KEY}
+    api_base: ${EMBEDDING_API_BASE:https://dashscope.aliyuncs.com/compatible-mode/v1}
+    # 必须与 Milvus collection 维度一致，默认 1024
+    dimensions: ${EMBEDDING_DIM:1024}
+
+# 向量存储：Milvus（本地 Docker / Zilliz Cloud 均使用同一套参数）
+vector_store:
+  uri: ${MILVUS_URI:http://localhost:19530}
+  token: ${MILVUS_TOKEN:}
+  collection: ${MILVUS_COLLECTION:game_guide_chunks}
+  dimension: ${EMBEDDING_DIM:1024}
+  metric_type: COSINE
+  index_type: HNSW
+  hnsw_m: 16
+  hnsw_ef_construction: 200
+  ef_search: 64
+  game_id: phantom_blade_zero
+  # 检索默认值（策略层可在 config.yml 覆盖）
+  top_k: 5
+  similarity_threshold: 0.42
+  # 单块内容上限，防止一次灌入超长上下文
+  max_context_chars: 6000
+
+# 业务库：攻略登记 / 反馈 / 会话
+database:
+  url: mysql+pymysql://${MYSQL_USER:root}:${MYSQL_PASSWORD}@${MYSQL_HOST:127.0.0.1}:${MYSQL_PORT:3306}/${MYSQL_DB:game_guide}?charset=utf8mb4
+
+# 会话存储：匿名 session_id 直接作为 trackers.sender_id
+tracker_store:
+  type: ${TRACKER_STORE_TYPE:mysql}
+  url: mysql+pymysql://${MYSQL_USER:root}:${MYSQL_PASSWORD}@${MYSQL_HOST:127.0.0.1}:${MYSQL_PORT:3306}/${MYSQL_DB:game_guide}?charset=utf8mb4
+  # 本地无 MySQL 时的降级目录（仅开发用）
+  path: ${TRACKER_STORE_PATH:trackers}
+
+# NLG 重述保持关闭，避免二次调用浪费预算
+nlg:
+  rephrase_enabled: false
