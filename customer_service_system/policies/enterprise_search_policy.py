@@ -76,7 +76,46 @@ class EnterpriseSearchPolicy(Policy):
     """
     
     DEFAULT_PRIORITY = 50
-    
+
+    # 越界短路信号词：只用于判断「这条消息是否属于本作攻略范围」，
+    # 不涉及、也不表达对任何话题的判断或评价，命中后统一回产品边界话术。
+    # 这类问题在游戏攻略库里检索必然为空，若继续走「检索 → 无结果 → 暂未收录」，
+    # 会把「不在本作范围」错误表述成「知识库资料待补」，前端还会误打未知标签。
+    # 这是启发式识别；漏判的兜底由 utter_default 承担（其措辞已不含「不在范围」）。
+    OUT_OF_SCOPE_HINTS = (
+        # 现实常识 / 社会话题。刻意不放「历史 / 国家 / 政治 / 战争」这类泛化词：
+        # 它们可能出现在游戏剧情、世界观问题里，误伤比漏判代价更大。
+        "台湾", "首都", "省份", "地理", "股票", "基金", "汇率", "房价", "新闻", "天气", "疫情",
+        "医院", "医生", "吃药", "法律", "律师", "法院",
+        # 其他游戏 / 违规请求 / 无关诉求
+        "黑神话", "只狼", "原神", "艾尔登", "破解", "盗版", "修改器", "外挂", "代练", "账号交易",
+        "人工客服",
+    )
+
+    @classmethod
+    def _looks_out_of_scope(cls, text: str) -> bool:
+        """轻量越界识别：命中现实话题/其他游戏/违规请求信号词时前置短路。"""
+        return any(hint in (text or "") for hint in cls.OUT_OF_SCOPE_HINTS)
+
+    def _out_of_scope_prediction(
+        self,
+        tracker: "DialogueStateTracker",
+        domain: Optional["Domain"],
+        default_text: str,
+    ) -> PolicyPrediction:
+        """统一的越界回复：只声明产品边界，不检索、不生成、不带来源与未知标签。"""
+        tracker.dialogue_stack.pop()
+        tracker.record_pattern("out_of_scope")
+        return PolicyPrediction(
+            action="action_send_text",
+            confidence=0.9,
+            policy_name=self.name,
+            metadata={
+                "text": self._fallback_text(domain, "utter_out_of_scope", default_text),
+                "degradation_reason": DegradationReason.CANNOT_HANDLE,
+            },
+        )
+
     # RAG提示词模板（《影之刃零》攻略场景）
     RAG_PROMPT_TEMPLATE = """你是《影之刃零》专属攻略助手，只依据下面给出的知识库片段回答。
 
@@ -265,6 +304,16 @@ class EnterpriseSearchPolicy(Policy):
         logger.info(f"[EnterpriseSearchPolicy] SearchStackFrame processing: {user_message}")
         
         try:
+            # 越界前置：命中现实话题/其他游戏/违规请求时直接回产品边界话术。
+            # 必须放在检索之前，否则检索必然为空 → 落到「暂未收录」，
+            # 把「不在本作范围」说成「知识库资料待补」。
+            if self._looks_out_of_scope(user_message):
+                return self._out_of_scope_prediction(
+                    tracker,
+                    domain,
+                    "本助手只回答《影之刃零》相关内容，其他话题超出范围，我就不展开了。",
+                )
+
             # 尝试知识库检索
             if self.config.retrieval.enabled and self._retriever:
                 query = self.build_query(user_message, tracker)
@@ -459,6 +508,16 @@ class EnterpriseSearchPolicy(Policy):
         logger.debug(f"CannotHandleStackFrame processing, reason: {getattr(frame, 'reason', '')}")
 
         user_message = tracker.latest_message.text if tracker.latest_message else ""
+
+        # 明确越界：不检索、不生成，直接回产品边界话术。
+        # 下方「先检索一次再拒答」的兜底保留，用来接住 NLU 偶尔把本作问题
+        # 误判成 cannot_handle 的情况，避免回归成一句「暂未收录」打发用户。
+        if self._looks_out_of_scope(user_message):
+            return self._out_of_scope_prediction(
+                tracker,
+                domain,
+                "本助手只回答《影之刃零》相关内容，其他话题超出范围，我就不展开了。",
+            )
 
         # 1. 先尝试检索（只有配置了检索器且确有用户消息时）
         if self.config.retrieval.enabled and self._retriever and user_message:

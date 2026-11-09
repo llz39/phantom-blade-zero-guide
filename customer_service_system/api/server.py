@@ -475,11 +475,13 @@ class AgentServer:
             if not answer:
                 answer = "暂未收录：这个问题没有检索到可核验的资料。"
                 unknown = True
-            # 只有「没有来源 + 拒答话术」才算整体未知。
+            # 只有「没有来源 + 知识库缺失话术」才算整体未知。
             # 有来源但答案里包含“某项暂未收录”属于部分未知，不应打上整体未知标签。
+            # 范围外话术（只回答本作 / 不在《影之刃零》）不是内容问题，
+            # 不能标成「暂未收录 · 无可靠来源」。
             if not sources and any(
                 marker in answer
-                for marker in ("暂未收录", "没有找到可靠来源", "不在《影之刃零》", "只回答本作")
+                for marker in ("暂未收录", "没有找到可靠来源")
             ):
                 unknown = True
 

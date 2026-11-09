@@ -16,6 +16,7 @@ venv/
 trackers/
 outputs/
 *.log
+game_guide_demo/eval/boundary_report.json
 
 # ---------- 工具缓存 ----------
 .pytest_cache/

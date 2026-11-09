@@ -11,6 +11,7 @@
     python scripts/run_eval.py --retrieval-only      # 只测召回（需 Milvus + embedding）
     python scripts/run_eval.py --full                # 端到端（需服务或 Agent 可跑）
     python scripts/run_eval.py --dry-run             # 用构造结果验证评分逻辑
+    python scripts/run_eval.py --boundary           # 10 道边界题回归（独立题集与报告）
 """
 
 from __future__ import annotations
@@ -272,6 +273,11 @@ def main() -> int:
     group.add_argument("--retrieval-only", action="store_true")
     group.add_argument("--full", action="store_true")
     group.add_argument("--dry-run", action="store_true")
+    group.add_argument(
+        "--boundary",
+        action="store_true",
+        help="跑 10 道边界题回归（独立题集与报告，不覆盖 120 题全量口径）",
+    )
     # 冒烟时只跑前 N 题，避免一次烧掉全部预算
     parser.add_argument("--limit", type=int, default=0, help="只跑前 N 题（0 = 全部）")
     # 抽样：按固定步长在 120 题里均匀取，保证覆盖武器/Boss/剧情/对抗
@@ -280,6 +286,13 @@ def main() -> int:
     parser.add_argument("--ids", default="", help="只跑指定题号，逗号分隔，如 Q001,Q012,Q101")
     parser.add_argument("--concurrency", type=int, default=3, help="端到端并发数（默认 3，别超过 5）")
     args = parser.parse_args()
+
+    if args.boundary:
+        # 边界题与 120 题口径完全隔离：独立题集、独立报告、独立判定逻辑。
+        sys.path.insert(0, str(BASE_DIR / "scripts"))
+        from boundary_eval import run_boundary
+
+        return run_boundary()
 
     items = load_questions()
     # --ids 优先：精确指定题号时不再做均匀抽样，避免选出别的题
